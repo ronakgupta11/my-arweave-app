@@ -66,7 +66,26 @@ useEffect(() => {
 }, [queryId,currentPage]);
   return (
 <>
-<div className="flex ">
+<div className="flex flex-col ">
+  <section className='w-full p-2'>
+    <div className='flex w-full items-center justify-between'>
+
+    <h1 className='text-3xl font-extrabold leading-tight m-2 tracking-tighter md:text-4xl'>
+      ArNet
+    </h1>
+    <div>
+        <div className='flex items-center space-x-4'>
+
+        <TextInput value={searchId} onChange={(e)=>setSearchId(e.target.value)} placeholder="txId"id="base" type="text" sizing="md" />
+        <Link to={`/assets/${searchId}`}>
+        <Button>Search</Button>
+        </Link>
+        </div>
+      </div>
+    </div>
+
+    <div className='border-b w-full'></div>
+  </section>
         <section className="container grid items-center gap-6 py-8 md:py-10 w-full m-auto">
           <div className="flex max-w-[980px] flex-col items-start gap-2">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
@@ -87,18 +106,7 @@ useEffect(() => {
       </Select>
     </div>
 
-    <div>
-        <div className="mb-2 block">
-          <Label htmlFor="base" value="Search Asset" />
-        </div>
-        <div className='flex items-center space-x-4'>
 
-        <TextInput value={searchId} onChange={(e)=>setSearchId(e.target.value)} placeholder="txId"id="base" type="text" sizing="md" />
-        <Link to={`/assets/${searchId}`}>
-        <Button>Search</Button>
-        </Link>
-        </div>
-      </div>
     </div>
 
     
