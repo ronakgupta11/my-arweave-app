@@ -74,7 +74,9 @@ export async function getAssetData(query) {
   })};
 }
 
-export const getSingleAsset = async(query)=>{
+
+
+export const getAsset = async(query)=>{
   const response = await queryAllTransactionsGQL(query, {
     gateway: "arweave.net",
     filters: {},

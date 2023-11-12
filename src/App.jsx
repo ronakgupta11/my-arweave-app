@@ -4,6 +4,7 @@ import { Label, Select,Pagination } from 'flowbite-react';
 import { getAssetData } from './lib/api';
 import VideoCard from './components/VideoCard';
 import ImageCard from './components/ImageCard';
+import { Link } from 'react-router-dom';
 function App() {
 
 const [assets, setAssets] = React.useState([]);
@@ -88,10 +89,10 @@ useEffect(() => {
       {assets.map((asset) => {
         const type = queryId.slice(2,7)
         return(
-        <div key={asset.id} href={`/view/${asset.id}`}>
+        <Link key={asset.id} to={`/assets/${asset.id}`}>
         {type==="image"?<ImageCard {...asset}    />:< VideoCard {...asset} />}
 
-        </div>
+        </Link>
       )})}
     </div>
     <div className="flex overflow-x-auto sm:justify-center">
