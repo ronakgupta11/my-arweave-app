@@ -7,10 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && node deploy.mjs"
   },
   "dependencies": {
-    "arweave": "^1.14.4",
     "arweave-account": "^1.4.3",
     "arweave-deploy": "^1.9.1",
     "arweavekit": "^1.5.1",
@@ -24,9 +24,11 @@
     "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
+    "@irys/sdk": "^0.0.4",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "arweave": "^1.14.4",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
