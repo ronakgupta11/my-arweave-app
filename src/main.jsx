@@ -9,12 +9,14 @@ import {
 } from "react-router-dom";
 import { loader as assetLoader } from './Asset.jsx'
 import ErrorAsset from './ErrorAsset.jsx'
+import ErrorPage from './ErrorPage.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement:<ErrorPage/>
   },
   {
     path: "assets/:assetId",
