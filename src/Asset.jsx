@@ -1,10 +1,8 @@
 import React from 'react'
 import {  useLoaderData } from "react-router-dom";
 import { getAsset } from "./lib/api";
-import { FooterDivider } from 'flowbite-react/lib/esm/components/Footer/FooterDivider';
 import { Card } from 'flowbite-react';
 export async function loader({ params }) {
-
 const query = `
     query{
       transactions(ids:["${params.assetId}"]) {
@@ -34,8 +32,6 @@ const query = `
   const asset = await getAsset(query);
   return { asset };
 }
-
-
 function Asset() {
     const {asset } = useLoaderData();
     const type = asset.data.type.slice(0,5)
@@ -53,7 +49,7 @@ const videoUrl = (src)=> `https://ar-io.dev/${src}`
       <p className='text-lg font-semibold text-gray'>{asset.id}</p>
 
       </div>
-      <FooterDivider/>
+      
       <div className=' flex space-x-2 justify-between'>
         
       <div className='w-[50%] p-8 '>

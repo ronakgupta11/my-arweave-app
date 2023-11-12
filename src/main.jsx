@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { loader as assetLoader } from './Asset.jsx'
+import ErrorAsset from './ErrorAsset.jsx'
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
   {
     path: "assets/:assetId",
     element: <Asset/>,
-    loader:assetLoader
+    loader:assetLoader,
+    errorElement:<ErrorAsset/>
   },
 ]);
 

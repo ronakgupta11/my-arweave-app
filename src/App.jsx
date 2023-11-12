@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import React from 'react';
-import { Label, Select,Pagination } from 'flowbite-react';
+import { Label, Select,Pagination ,TextInput, Button} from 'flowbite-react';
 import VideoCard from './components/VideoCard';
 import ImageCard from './components/ImageCard';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ const [assets, setAssets] = React.useState([]);
 const [nextId,setNextId] = useState(undefined)
 const [queryId,setQueryId] = useState(`["image/png","image/jpeg","image/avif","image/gif","image/svg+xml"]`)
 const [currentPage, setCurrentPage] = useState(1);
+const [searchId, setSearchId] = useState("");
 
 
 const onPageChange = (page) => {
@@ -49,7 +50,6 @@ edges {
 
 `;
 
-console.log(query)
 const handleOptionChange = (event) => {
   setQueryId(event.target.value);
   setCurrentPage(1)
@@ -66,7 +66,7 @@ useEffect(() => {
 }, [queryId,currentPage]);
   return (
 <>
-<div className="flex">
+<div className="flex ">
         <section className="container grid items-center gap-6 py-8 md:py-10 w-full m-auto">
           <div className="flex max-w-[980px] flex-col items-start gap-2">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
@@ -74,6 +74,8 @@ useEffect(() => {
             </h1>
             <p className="max-w-[700px] text-lg text-muted-foreground">Filter on Asset Content Type.</p>
             <div>
+              <div className='flex items-center space-x-24'>
+
 <div className="max-w-md">
       <div className="mb-2 block">
         <Label htmlFor="Filter" value="Select Asset Type" />
@@ -84,6 +86,22 @@ useEffect(() => {
 
       </Select>
     </div>
+
+    <div>
+        <div className="mb-2 block">
+          <Label htmlFor="base" value="Search Asset" />
+        </div>
+        <div className='flex items-center space-x-4'>
+
+        <TextInput value={searchId} onChange={(e)=>setSearchId(e.target.value)} placeholder="txId"id="base" type="text" sizing="md" />
+        <Link to={`/assets/${searchId}`}>
+        <Button>Search</Button>
+        </Link>
+        </div>
+      </div>
+    </div>
+
+    
     </div>
     </div>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-6">
