@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import React from 'react';
 import { Label, Select,Pagination } from 'flowbite-react';
-import { getAssetData } from './lib/api';
 import VideoCard from './components/VideoCard';
 import ImageCard from './components/ImageCard';
 import { Link } from 'react-router-dom';
+import { getAssetData } from "./lib/api";
+
 function App() {
 
 const [assets, setAssets] = React.useState([]);
@@ -19,7 +20,7 @@ const onPageChange = (page) => {
 const query = `
 query{
   transactions(tags: [
-  { name: "Content-type", values: ${queryId} }
+  { name: "Content-type", values: ${queryId} },
   ] ,first: 12 ,${currentPage!==1 ? `after:"${nextId}"`:""}) {
     
 edges {
@@ -69,9 +70,9 @@ useEffect(() => {
         <section className="container grid items-center gap-6 py-8 md:py-10 w-full m-auto">
           <div className="flex max-w-[980px] flex-col items-start gap-2">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-              View your Atomic Assets 🖼️
+              View Assets 🖼️ on Arweave
             </h1>
-            <p className="max-w-[700px] text-lg text-muted-foreground">With on-chain likes and comments.</p>
+            <p className="max-w-[700px] text-lg text-muted-foreground">Filter on Asset Content Type.</p>
             <div>
 <div className="max-w-md">
       <div className="mb-2 block">

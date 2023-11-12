@@ -8,6 +8,9 @@ export default function ImageCard(props) {
  
         return `https://ar-io.dev/${src}?w=200&q=75`;
       };
+
+    const videoUrl = (src)=> `https://ar-io.dev/${src}`
+
   return (  
     <Card 
       className="max-w-sm"
