@@ -6,7 +6,7 @@ import ImageCard from './components/ImageCard';
 import { Link } from 'react-router-dom';
 import { getAssetData } from "./lib/api";
 
-function App() {
+export default function App() {
 
 const [assets, setAssets] = React.useState([]);
 const [nextId,setNextId] = useState(undefined)
@@ -112,4 +112,4 @@ useEffect(() => {
 
 
 
-export default App
+

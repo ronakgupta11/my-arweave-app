@@ -2,7 +2,6 @@ import React from 'react'
 import {  useLoaderData } from "react-router-dom";
 import { getAsset } from "./lib/api";
 import { FooterDivider } from 'flowbite-react/lib/esm/components/Footer/FooterDivider';
-import ImageCard from './components/ImageCard';
 import { Card } from 'flowbite-react';
 export async function loader({ params }) {
 
@@ -37,7 +36,7 @@ const query = `
 }
 
 
-function Asset(Props) {
+function Asset() {
     const {asset } = useLoaderData();
     const type = asset.data.type.slice(0,5)
 const videoUrl = (src)=> `https://ar-io.dev/${src}`
